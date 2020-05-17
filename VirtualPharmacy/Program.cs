@@ -16,7 +16,7 @@ namespace VirtualPharmacy
             Console.WriteLine("Welcome at " + store.Name + "!");
             while (true)
             {
-                Console.WriteLine("Pick one of the options below" + "\n1.Add new product\n2.Display all products\n3.Display products by certain type\n4.Exit");
+                Console.WriteLine("Pick one of the options below" + "\n1.Add new product\n2.Display all products\n3.Display products by certain type\n4.Update product stock\n5.Exit");
                 Console.WriteLine("Your choice is:");
 
                 string input = Console.ReadLine();
@@ -52,7 +52,17 @@ namespace VirtualPharmacy
                         Console.WriteLine("#" + counter++ + " " + product.ToString());
                     }
                 }
-                else if(input == "4")
+                else if( input == "4")
+                {
+                    Console.WriteLine("Enter the id of product you want to add:");
+                    string productId = Console.ReadLine();
+                    Console.WriteLine("Enter the amount you want to add:");
+                    string productAmount = Console.ReadLine();
+                    int productAmountParsed = Int32.Parse(productAmount);
+                    var product = new Product();
+                    product.UpdateStock(productId, productAmountParsed);
+                }
+                else if(input == "5")
                 {
                     break;
                 }
